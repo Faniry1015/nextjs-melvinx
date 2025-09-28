@@ -1,6 +1,7 @@
 import { PagesLayout } from '@/components/pages-layout'
 import Link from 'next/link'
 import React from 'react'
+import modules from './modules'
 
 const page = () => {
   return (
@@ -9,9 +10,9 @@ const page = () => {
         <div>
             <h2>Liste des formations</h2>
             <ul>
-                <li><Link href="/formations/formation1" >Formation numéro 1</Link></li>
-                <li><Link href="/formations/formation2" >Formation numéro 2</Link></li>
-                <li><Link href="/formations/formation3" >Formation numéro 3</Link></li>
+              {modules.map((module) => (
+                <li key={module.id} className='text-blue-500 hover:underline list-inside list-disc pl-5'>
+                  <Link href={`/formations/${module.id}`}>{module.title}</Link> </li>))}
             </ul>
                 
         </div>
