@@ -10,9 +10,8 @@ interface PageProps {
     };
 }
 
-const page = ({ params }: PageProps) => {
-    const { 'module-id': moduleId } = params;
-    const currentModule = modules.find(module => module.id === moduleId);
+const page = async ({ params }: PageProps) => {
+    const currentModule = modules.find(module => module.id === params['module-id']);
     if (!currentModule) {
         return (
             <PagesLayout title='Module non trouvé' />)
@@ -25,7 +24,7 @@ const page = ({ params }: PageProps) => {
                 <h3 className='text-xl font-semibold'>Leçons :</h3>
                 <ul>
                     {currentModule.lessons.map((lesson, index) => (
-                        <li key={index} className='text-blue-500 hover:underline list-inside list-disc pl-5'>{lesson.title}</li>
+                        <Link href={`${currentModule.id}/${lesson.slug}`}><li key={index} className='text-blue-500 hover:underline list-inside list-disc pl-5'>{lesson.title}</li></Link>
                     ))}
                 </ul>
                 <Link href='/formations'><Button>Retour aux formations</Button></Link>
