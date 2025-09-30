@@ -17,7 +17,7 @@ const page = async ({ params }: PageProps) => {
             <PagesLayout title='Module non trouvé' />)
     }
     return (
-        <PagesLayout title='Formations'>
+        <PagesLayout title=''>
             <div className='flex flex-col gap-4'>
                 <h2 className='text-2xl font-bold'>{currentModule.title}</h2>
                 <p>{currentModule.description}</p>

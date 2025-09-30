@@ -5,7 +5,7 @@ import modules from './modules'
 
 const page = () => {
   return (
-    <PagesLayout title='Formations'    
+    <PagesLayout title=''    
     >
         <div>
             <h2>Liste des formations</h2>
