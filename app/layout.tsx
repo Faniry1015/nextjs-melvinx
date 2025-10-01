@@ -26,20 +26,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang="fr" className="h-full">
+    <html suppressHydrationWarning lang="fr" className="min-h-full">
       <body
-        className={cn(geistSans.variable, geistMono.variable, "antialiased", "h-full", "pt-6", "px-10")}
+        className={cn(geistSans.variable, geistMono.variable, "antialiased", "min-h-screen", "px-10")}
       >
-        <ThemeProvider 
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex justify-end top-4 right-4">
-          <ModeToggle />
+          <div className="flex flex-col gap-2 min-h-screen">
+            <div className="flex justify-end">
+              <ModeToggle />
+            </div>
+            <div className="min-h-full">
+              {children}
+            </div>
           </div>
-        {children}
         </ThemeProvider>
       </body>
     </html>
