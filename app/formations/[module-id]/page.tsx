@@ -24,7 +24,7 @@ const page = async ({ params }: PageProps) => {
                 <h3 className='text-xl font-semibold'>Leçons :</h3>
                 <ul>
                     {currentModule.lessons.map((lesson, index) => (
-                        <Link href={`${currentModule.id}/${lesson.slug}`}><li key={index} className='text-blue-500 hover:underline list-inside list-disc pl-5'>{lesson.title}</li></Link>
+                        <Link href={`${currentModule.id}/lessons/${lesson.slug}`} key={index}><li  className='text-blue-500 hover:underline list-inside list-disc pl-5'>{lesson.title}</li></Link>
                     ))}
                 </ul>
                 <Link href='/formations'><Button>Retour aux formations</Button></Link>

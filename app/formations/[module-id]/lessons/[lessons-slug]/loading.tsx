@@ -1,10 +1,11 @@
 import { PagesLayout } from '@/components/pages-layout'
 import React from 'react'
-import modules from '../../modules';
+import modules from '../../../modules';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { notFound } from 'next/navigation';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface PageProps {
     params: {
@@ -17,15 +18,12 @@ const page = async ({ params }: PageProps) => {
     return (
         <PagesLayout title=''>
             <Card className='p-6'>
-                <CardHeader>
-                    Loading...
-                </CardHeader>
+                    <Skeleton className='h-8 w-50 mb-4' />
                 <CardContent>
-                    <p>...</p>
-                    <h3 className='text-xl font-italic'>Lien externes</h3>
+                    <Skeleton className='h-4 w-full mb-2' />
                     <ul>
-                        {['...', '...', '...'].map((item, index) => (
-                            <Link href={item}><li key={index} className='list-inside list-disc pl-5'>{item}</li></Link>
+                        {[1, 2, 3].map((item, index) => (
+                            <Skeleton key={index} className='h-4 w-full mb-2' />
                         ))}
                     </ul>
                 </CardContent>

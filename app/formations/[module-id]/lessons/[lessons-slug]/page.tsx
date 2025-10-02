@@ -1,9 +1,10 @@
 import { PagesLayout } from '@/components/pages-layout'
 import React from 'react'
-import modules from '../../modules';
+import modules from '../../../modules';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { notFound } from 'next/navigation';
 
 interface PageProps {
     params: {
@@ -19,7 +20,9 @@ const page = async ({ params }: PageProps) => {
     await new Promise(resolve => setTimeout(resolve, 3000));
     
     if (!currentLesson) {
-        throw new Error('Leçon non trouvée');
+        return (
+            notFound()
+        )
     }
 
     return (
