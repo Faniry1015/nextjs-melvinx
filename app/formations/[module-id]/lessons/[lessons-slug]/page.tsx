@@ -36,7 +36,7 @@ const page = async ({ params }: PageProps) => {
                     <h3 className='text-xl font-italic'>Lien externes</h3>
                     <ul>
                         {currentLesson.resources.map((item, index) => (
-                            <Link href={item}><li key={index} className='list-inside list-disc pl-5'>{item}</li></Link>
+                            <Link href={item} key={index}><li  className='list-inside list-disc pl-5'>{item}</li></Link>
                         ))}
                     </ul>
                 </CardContent>

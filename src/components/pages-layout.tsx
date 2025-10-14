@@ -1,4 +1,4 @@
-import React, { JSX, PropsWithChildren } from 'react'
+import React, { PropsWithChildren } from 'react'
 
 interface PagesLayoutProps {
   title?: string

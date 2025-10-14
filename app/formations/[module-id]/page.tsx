@@ -1,17 +1,20 @@
 import { PagesLayout } from '@/components/pages-layout'
 import React from 'react'
-import modules from '../modules';
+import MODULES from '../modules';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-interface PageProps {
-    params: {
-        'module-id': string;
-    };
+export async function generateStaticParams () {
+    const modules = MODULES
+    const result = modules.map(module => ({
+        'module-id': module.id
+    }))
+    return result;
 }
 
-const page = async ({ params }: PageProps) => {
-    const currentModule = modules.find(module => module.id === params['module-id']);
+const page = async ({ params }: { params: { 'module-id': string } }) => {
+    const moduleId = params['module-id'];
+    const currentModule = MODULES.find(module => module.id === moduleId);
     if (!currentModule) {
         return (
             <PagesLayout title='Module non trouvé' />)

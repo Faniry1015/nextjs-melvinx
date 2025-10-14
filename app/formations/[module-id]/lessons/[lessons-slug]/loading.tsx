@@ -1,20 +1,9 @@
 import { PagesLayout } from '@/components/pages-layout'
 import React from 'react'
-import modules from '../../../modules';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { notFound } from 'next/navigation';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
-interface PageProps {
-    params: {
-        'module-id': string;
-        'lessons-slug': string;
-    };
-}
-
-const page = async ({ params }: PageProps) => {
+const page = async () => {
     return (
         <PagesLayout title=''>
             <Card className='p-6'>

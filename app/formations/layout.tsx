@@ -1,14 +1,8 @@
 import { PagesLayout } from '@/components/pages-layout'
 import React, { PropsWithChildren } from 'react'
-import modules from './modules';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 
-interface PageProps {
-    props: PropsWithChildren,
 
-}
 
 const page = async (props: PropsWithChildren) => {
 
