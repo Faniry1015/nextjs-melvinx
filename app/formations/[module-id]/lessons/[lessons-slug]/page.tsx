@@ -18,7 +18,7 @@ const page = async ({ params }: PageProps) => {
     const currentLesson = currentModule?.lessons.find(lesson => lesson.slug === params['lessons-slug']);
 
     await new Promise(resolve => setTimeout(resolve, 3000));
-    
+
     if (!currentLesson) {
         return (
             notFound()
@@ -26,26 +26,24 @@ const page = async ({ params }: PageProps) => {
     }
 
     return (
-        <PagesLayout title=''>
-            <Card className='p-6'>
-                <CardHeader>
-                    <h2 className='text-2xl font-bold'>{currentLesson.title}</h2>
-                </CardHeader>
-                <CardContent>
-                    <p>{currentLesson.objective}</p>
-                    <h3 className='text-xl font-italic'>Lien externes</h3>
-                    <ul>
-                        {currentLesson.resources.map((item, index) => (
-                            <Link href={item} key={index}><li  className='list-inside list-disc pl-5'>{item}</li></Link>
-                        ))}
-                    </ul>
-                </CardContent>
-                <CardFooter>
-                    <Link href={`/formations/${currentModule?.id}`}><Button className='mt-4'>Retour au module</Button></Link>
-                </CardFooter>
-            </Card>
+        <Card className='p-6'>
+            <CardHeader>
+                <h2 className='text-2xl font-bold'>{currentLesson.title}</h2>
+            </CardHeader>
+            <CardContent>
+                <p>{currentLesson.objective}</p>
+                <h3 className='text-xl font-italic'>Lien externes</h3>
+                <ul>
+                    {currentLesson.resources.map((item, index) => (
+                        <Link href={item} key={index}><li className='list-inside list-disc pl-5'>{item}</li></Link>
+                    ))}
+                </ul>
+            </CardContent>
+            <CardFooter>
+                <Link href={`/formations/${currentModule?.id}`}><Button className='mt-4'>Retour au module</Button></Link>
+            </CardFooter>
+        </Card>
 
-        </PagesLayout>
     )
 }
 
