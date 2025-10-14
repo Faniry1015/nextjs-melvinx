@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/theme-toggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Melvinx - Next.js",
+  title: "Faniry - Next.js",
   description: "Créé par faniry",
 };
 

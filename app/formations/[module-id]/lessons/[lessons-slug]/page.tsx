@@ -1,4 +1,3 @@
-import { PagesLayout } from '@/components/pages-layout'
 import React from 'react'
 import modules from '../../../modules';
 import { Button } from '@/components/ui/button';
