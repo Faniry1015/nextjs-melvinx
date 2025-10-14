@@ -37,9 +37,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex flex-col gap-2 min-h-screen">
-            <div className="flex justify-end">
-              <ModeToggle />
-            </div>
             <div className="min-h-full">
               {children}
             </div>
