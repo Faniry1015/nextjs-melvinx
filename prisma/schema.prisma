@@ -1,12 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
+  // sortie par défaut -> nécessaire pour Prisma Studio
   log      = ["query", "info", "warn", "error"]
 }
 
@@ -16,23 +10,23 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  image     String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  modules   Module[] @relation("UserModules")
+  id          String        @id @default(cuid())
+  email       String        @unique
+  name        String?
+  image       String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  userModules UserModule[]  // <-- relation explicite
 }
 
 model Module {
-  id        String   @id @default(cuid())
-  title     String
-  slug      String   @unique
-  content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  users     User[]   @relation("UserModules")
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  content     String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  userModules UserModule[]  // <-- relation explicite
 }
 
 model UserModule {
@@ -41,5 +35,11 @@ model UserModule {
   completed   Boolean   @default(false)
   completedAt DateTime?
 
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+
   @@id([userId, moduleId])
+  @@index([userId])
+  @@index([moduleId])
+  // @@map("user_modules") // décommente si tu veux nommer la table SQL
 }
