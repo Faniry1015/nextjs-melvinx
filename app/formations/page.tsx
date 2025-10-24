@@ -5,18 +5,16 @@ import modules from './modules'
 
 const page = () => {
   return (
-    <PagesLayout title=''    
-    >
-        <div>
-            <h2>Liste des formations</h2>
-            <ul>
-              {modules.map((module) => (
-                <li key={module.id} className='text-blue-500 hover:underline list-inside list-disc pl-5'>
-                  <Link href={`/formations/${module.id}`}>{module.title}</Link> </li>))}
-            </ul>
-                
-        </div>
-    </PagesLayout>
+
+    <div>
+      <h2>Liste des formations</h2>
+      <ul>
+        {modules.map((module) => (
+          <li key={module.id} className='text-blue-500 hover:underline list-inside list-disc pl-5'>
+            <Link href={`/formations/${module.id}`}>{module.title}</Link> </li>))}
+      </ul>
+
+    </div>
   )
 }
 

@@ -10,6 +10,8 @@ export const Header = () => {
         <Link href='/' className='text-gray-700 hover:text-gray-900'>Accueil</Link>
         <Link href='/formations' className='text-gray-700 hover:text-gray-900'>Formations</Link>
         <Link href='/contact' className='text-gray-700 hover:text-gray-900'>Contact</Link>
+        <Link href='/auth/sigin' className='text-gray-700 hover:text-gray-900'>Se connecter</Link>
+        <Link href='/auth/signup' className='text-gray-700 hover:text-gray-900'>S’inscrire</Link>
         <ModeToggle />
       </div>
 
