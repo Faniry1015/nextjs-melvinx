@@ -112,9 +112,6 @@ export function NavMenu() {
             <Link href="/docs">Docs</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
-        <NavigationMenuItem>
-            <ModeToggle />
-        </NavigationMenuItem>
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuTrigger>List</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -192,6 +189,9 @@ export function NavMenu() {
               </li>
             </ul>
           </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <ModeToggle />
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
